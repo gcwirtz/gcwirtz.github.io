@@ -30,6 +30,10 @@ module.exports = {
       "-3xl": { max: "1999px" },
       "3xl": "2000px"
     },
+    fontFamily: {
+      pinyon: ['"Pinyon Script"'],
+      playfair: ['"Playfair Display"']
+    },
     extend: {
       fontSize: {
         h1: fontSizeClamp(2.25, 3), // 36px - 48px
@@ -45,10 +49,7 @@ module.exports = {
         transparent: "transparent",
         current: "currentColor",
         white: "#fff",
-        green: "#22b14c",
-        black: "#000",
-        base: "#d1e4dd",
-        pank: "#ef7ef7"
+        black: "#000"
       },
       maxWidth: {
         400: "100rem" //1600px
@@ -67,29 +68,26 @@ module.exports = {
     plugin(function ({ addBase, theme }) {
       addBase({
         "body, p": {
+          fontFamily: theme("fontFamily.playfair"),
           fontSize: theme("fontSize.body")
         },
         "h1, .h1": {
-          fontFamily: theme("fontFamily.playertwo"),
-          fontWeight: theme("fontWeight.medium"),
+          fontFamily: theme("fontFamily.pinyon"),
           fontSize: theme("fontSize.h1"),
           lineHeight: "1.1"
         },
         "h2, .h2": {
-          fontFamily: theme("fontFamily.playertwo"),
-          fontWeight: theme("fontWeight.medium"),
+          fontFamily: theme("fontFamily.pinyon"),
           fontSize: theme("fontSize.h2"),
           lineHeight: "1.15"
         },
         "h3, .h3": {
-          fontFamily: theme("fontFamily.playertwo"),
-          fontWeight: theme("fontWeight.medium"),
+          fontFamily: theme("fontFamily.pinyon"),
           fontSize: theme("fontSize.h3"),
           lineHeight: "1.2"
         },
         "h4, .h4": {
-          fontFamily: theme("fontFamily.playertwo"),
-          fontWeight: theme("fontWeight.normal"),
+          fontFamily: theme("fontFamily.pinyon"),
           fontSize: theme("fontSize.h4"),
           lineHeight: "1.2"
         }

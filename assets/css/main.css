@@ -2,9 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "Pinyon Script";
+  src: url("../fonts/PinyonScript-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Playfair Display";
+  src: url("../fonts/PlayfairDisplay-Regular.ttf") format("truetype");
+}
+
 html {
   scroll-behavior: smooth;
 }
 body {
-  background-color: red;
+  background-color: #fff;
+  font-family: "Playfair Display";
+  color: #000;
 }
