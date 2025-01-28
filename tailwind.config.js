@@ -26,9 +26,7 @@ module.exports = {
       "-xl": { max: "1219px" },
       xl: "1220px",
       "-2xl": { max: "1599px" },
-      "2xl": "1600px",
-      "-3xl": { max: "1999px" },
-      "3xl": "2000px"
+      "2xl": "1600px"
     },
     fontFamily: {
       pinyon: ['"Pinyon Script"'],
