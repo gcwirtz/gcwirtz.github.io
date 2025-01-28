@@ -49,7 +49,8 @@ module.exports = {
         transparent: "transparent",
         current: "currentColor",
         white: "#fff",
-        black: "#000"
+        black: "#000",
+        brown: "#80471c"
       },
       maxWidth: {
         400: "100rem" //1600px
