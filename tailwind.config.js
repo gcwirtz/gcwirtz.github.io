@@ -48,13 +48,17 @@ module.exports = {
         current: "currentColor",
         white: "#fff",
         black: "#000",
-        brown: "#80471c"
+        brown: {
+          DEFAULT: "#80471c",
+          light: "#997950"
+        }
       },
       maxWidth: {
         400: "100rem" //1600px
       },
       minHeight: {
-        200: "50rem" // 800px
+        200: "50rem", // 800px
+        150: "37.5rem" // 600px
       }
     }
   },
