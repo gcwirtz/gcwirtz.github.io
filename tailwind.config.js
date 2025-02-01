@@ -56,6 +56,10 @@ module.exports = {
       maxWidth: {
         400: "100rem" //1600px
       },
+      height: {
+        "hero-desktop": "calc(100vh - 81px)",
+        "hero-mobile": "calc(100vh - 56px)"
+      },
       minHeight: {
         200: "50rem", // 800px
         150: "37.5rem" // 600px
