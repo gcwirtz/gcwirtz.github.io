@@ -734,14 +734,6 @@ h4, .h4 {
   min-height: 50rem;
 }
 
-.w-2\/5 {
-  width: 40%;
-}
-
-.w-3\/5 {
-  width: 60%;
-}
-
 .w-fit {
   width: -moz-fit-content;
   width: fit-content;
@@ -1063,10 +1055,6 @@ Animations
 }
 
 @media (max-width: 1023px) {
-  .-lg\:w-full {
-    width: 100%;
-  }
-
   .-lg\:flex-col {
     flex-direction: column;
   }
@@ -1079,10 +1067,6 @@ Animations
 }
 
 @media (max-width: 1219px) {
-  .-xl\:w-1\/2 {
-    width: 50%;
-  }
-
   .-xl\:max-w-64 {
     max-width: 16rem;
   }
