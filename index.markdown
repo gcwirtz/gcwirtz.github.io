@@ -6,4 +6,5 @@ layout: home
 
 meta_title: The Wynstra House
 meta_description: History of the Wynstra family and house in Olympia, Washington.
+meta-image: /assets/images/house_1938.jpg
 ---
