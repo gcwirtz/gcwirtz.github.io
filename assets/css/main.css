@@ -33,6 +33,21 @@ body {
   background: #fff;
   transition: width 0.5s ease, background-color 0.5s ease;
 }
+/* home hero images fallback for ~tablet widths */
+@media (max-width: 1219px) {
+  .hero-image {
+    width: calc(50vw + 200px);
+  }
+}
+
+/* dark-> transparent gradient overlays */
+.gradient-bl {
+  background: linear-gradient(9deg, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0) 25%);
+}
+.gradient-br {
+  background: linear-gradient(351deg, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0) 25%);
+}
+
 
 /**
 Animations 
