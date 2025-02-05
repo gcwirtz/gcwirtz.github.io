@@ -58,7 +58,8 @@ module.exports = {
       },
       height: {
         "hero-desktop": "calc(100vh - 81px)",
-        "hero-mobile": "calc(100vh - 56px)"
+        "hero-mobile": "calc(100vh - 56px)",
+        84: "21rem" // 336px
       },
       minHeight: {
         200: "50rem", // 800px
