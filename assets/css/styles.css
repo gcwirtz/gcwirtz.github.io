@@ -1119,6 +1119,18 @@ Animations
 }
 
 @media (max-width: 899px) {
+  .-tablet\:absolute {
+    position: absolute;
+  }
+
+  .-tablet\:left-1\/2 {
+    left: 50%;
+  }
+
+  .-tablet\:top-1\/2 {
+    top: 50%;
+  }
+
   .-tablet\:my-20 {
     margin-top: 5rem;
     margin-bottom: 5rem;
@@ -1134,6 +1146,16 @@ Animations
 
   .-tablet\:w-full {
     width: 100%;
+  }
+
+  .-tablet\:-translate-x-1\/2 {
+    --tw-translate-x: -50%;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  }
+
+  .-tablet\:-translate-y-1\/2 {
+    --tw-translate-y: -50%;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
   }
 
   .-tablet\:flex-col {
