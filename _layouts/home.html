@@ -10,9 +10,7 @@
     <link rel="stylesheet" href="/assets/css/styles.css" />
   </head>
   <body class="relative max-w-400 w-full mx-auto -tablet:px-5 px-8">
-    {% include navbar.html %}{% include heroes/home.html %}
-    <main class="flex flex-col">{% include components/component-location.html %}{% include components/component-theodore.html %}{% include components/component-quote.html %}{% include components/component-house.html %}</main>
-    {% include footer.html %}
+    {% include navbar.html %} {{ content }} {% include footer.html %}
     <script type="module" src="/assets/js/dist/script.js"></script>
   </body>
 </html>
