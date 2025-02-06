@@ -685,6 +685,11 @@ h4, .h4 {
   margin-bottom: 5rem;
 }
 
+.my-24 {
+  margin-top: 6rem;
+  margin-bottom: 6rem;
+}
+
 .mb-3 {
   margin-bottom: 0.75rem;
 }
@@ -715,6 +720,10 @@ h4, .h4 {
 
 .mt-40 {
   margin-top: 10rem;
+}
+
+.mb-14 {
+  margin-bottom: 3.5rem;
 }
 
 .flex {
@@ -862,6 +871,21 @@ h4, .h4 {
   padding-bottom: 5rem;
 }
 
+.py-5 {
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+}
+
+.py-8 {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.py-6 {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
 .pb-40 {
   padding-bottom: 10rem;
 }
@@ -894,6 +918,10 @@ h4, .h4 {
   text-transform: uppercase;
 }
 
+.capitalize {
+  text-transform: capitalize;
+}
+
 .italic {
   font-style: italic;
 }
@@ -920,6 +948,10 @@ h4, .h4 {
 
 .duration-500 {
   transition-duration: 500ms;
+}
+
+.duration-300 {
+  transition-duration: 300ms;
 }
 
 .ease-in-out {
@@ -1047,6 +1079,16 @@ Animations
   color: rgb(128 71 28 / var(--tw-text-opacity, 1));
 }
 
+.hover\:text-brown-light:hover {
+  --tw-text-opacity: 1;
+  color: rgb(153 121 80 / var(--tw-text-opacity, 1));
+}
+
+.hover\:text-black:hover {
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity, 1));
+}
+
 .group:hover .group-hover\:translate-x-2 {
   --tw-translate-x: 0.5rem;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
@@ -1081,6 +1123,14 @@ Animations
     margin-top: 5rem;
   }
 
+  .-md\:mb-7 {
+    margin-bottom: 1.75rem;
+  }
+
+  .-md\:mb-6 {
+    margin-bottom: 1.5rem;
+  }
+
   .-md\:h-hero-mobile {
     height: calc(100vh - 56px);
   }
@@ -1098,8 +1148,27 @@ Animations
     padding-right: 0px;
   }
 
+  .-md\:py-4 {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .-md\:py-2 {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .-md\:py-5 {
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+  }
+
   .-md\:pb-6 {
     padding-bottom: 1.5rem;
+  }
+
+  .-md\:text-h3 {
+    font-size: clamp(1.25rem, 2.5vw, 2rem);
   }
 }
 
@@ -1134,6 +1203,11 @@ Animations
   .-tablet\:my-20 {
     margin-top: 5rem;
     margin-bottom: 5rem;
+  }
+
+  .-tablet\:my-14 {
+    margin-top: 3.5rem;
+    margin-bottom: 3.5rem;
   }
 
   .-tablet\:aspect-\[3\/2\] {
@@ -1208,6 +1282,22 @@ Animations
 }
 
 @media (max-width: 1023px) {
+  .-lg\:order-1 {
+    order: 1;
+  }
+
+  .-lg\:order-2 {
+    order: 2;
+  }
+
+  .-lg\:mb-6 {
+    margin-bottom: 1.5rem;
+  }
+
+  .-lg\:mb-5 {
+    margin-bottom: 1.25rem;
+  }
+
   .-lg\:flex-col {
     flex-direction: column;
   }
@@ -1216,6 +1306,11 @@ Animations
 @media (min-width: 1024px) {
   .lg\:w-1\/2 {
     width: 50%;
+  }
+
+  .lg\:px-14 {
+    padding-left: 3.5rem;
+    padding-right: 3.5rem;
   }
 }
 
