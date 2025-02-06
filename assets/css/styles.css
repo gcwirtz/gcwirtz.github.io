@@ -1136,6 +1136,10 @@ Animations
     margin-bottom: 5rem;
   }
 
+  .-tablet\:aspect-\[3\/2\] {
+    aspect-ratio: 3/2;
+  }
+
   .-tablet\:h-full {
     height: 100%;
   }
@@ -1160,6 +1164,26 @@ Animations
 
   .-tablet\:flex-col {
     flex-direction: column;
+  }
+
+  .-tablet\:rounded-md {
+    border-radius: 0.375rem;
+  }
+
+  .-tablet\:rounded-lg {
+    border-radius: 0.5rem;
+  }
+
+  .-tablet\:rounded-xl {
+    border-radius: 0.75rem;
+  }
+
+  .-tablet\:rounded-2xl {
+    border-radius: 1rem;
+  }
+
+  .-tablet\:rounded-3xl {
+    border-radius: 1.5rem;
   }
 
   .-tablet\:px-5 {
