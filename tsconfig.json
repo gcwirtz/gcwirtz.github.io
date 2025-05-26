@@ -1,11 +1,16 @@
 {
-  "compilerOptions": {
-    "target": "es5", // Or a more recent target if needed
-    "module": "commonjs",
-    "outDir": "assets/js/dist", // Output directory for compiled JavaScript
-    "sourceMap": true,
-    "strict": true
-  },
-  "include": ["assets/js/**/*.ts"],
-  "exclude": ["node_modules"]
+	"compilerOptions": {
+		"lib": ["es2017", "dom"], // Include necessary libraries
+		"target": "es2017", // Or a more recent target if needed
+		"module": "esnext",
+		"outDir": "assets/js/dist", // Output directory for compiled JavaScript
+		"sourceMap": true,
+		"strict": true,
+		"esModuleInterop": true,
+		"skipLibCheck": true,
+		"allowSyntheticDefaultImports": true,
+		"moduleResolution": "node"
+	},
+	"include": ["assets/js/**/*.ts"],
+	"exclude": ["node_modules"]
 }
