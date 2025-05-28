@@ -5,20 +5,23 @@
       slides: [
           {
               img: '/assets/images/house_1938.jpg',
-              alt: 'Description for slide 2: Consectetur adipiscing elit.',
+              alt: 'Photo of the Wynstra home in 1938.',
               caption: 'Photo of the Wynstra home in 1938.',
-              link: '#link2'
+              fullImg: '/assets/images/house_1938.jpg'
           },
           {
               img: '/assets/images/house_today.jpg',
-              alt: 'Description for slide 1: Lorem ipsum dolor sit amet.',
+              alt: 'Photo of the Wynstra home today.',
               caption: 'Photo of the Wynstra home today.',
-              link: '#link1'
+              fullImg: '/assets/images/house_today.jpg'
           }
       ],
       autoplay: true,
       interval: 5000,
       autoplayInterval: null,
+	  showModal: false,
+      currentModalIndex: 0,
+      initialFocusElement: null,
 
       init() {
           this.startAutoplay();
@@ -84,12 +87,86 @@
               event.preventDefault(); // Prevent page scroll
               this.nextSlide();
           }
+      },
+
+	        openModal(index) {
+          this.stopAutoplay(); // Stop autoplay when modal opens
+          this.currentModalIndex = index;
+          this.showModal = true;
+          this.initialFocusElement = document.activeElement; // Store element that opened modal
+          this.$nextTick(() => {
+              // Focus the close button or the image itself for initial focus
+              this.$refs.modalCloseButton.focus();
+              this.$refs.modalLiveRegion.textContent = `Image ${this.currentModalIndex + 1} of ${this.slides.length} currently displayed: ${this.slides[this.currentModalIndex].alt}. Press escape to close.`;
+          });
+          document.body.classList.add('overflow-hidden'); // Prevent body scroll
+      },
+
+      closeModal() {
+          this.showModal = false;
+          this.startAutoplay(); // Resume autoplay when modal closes
+          this.$nextTick(() => {
+              if (this.initialFocusElement) {
+                  this.initialFocusElement.focus(); // Return focus to the element that opened the modal
+                  this.initialFocusElement = null; // Clear it
+              }
+          });
+          document.body.classList.remove('overflow-hidden'); // Restore body scroll
+      },
+
+      nextModalImage() {
+          this.currentModalIndex = (this.currentModalIndex + 1) % this.slides.length;
+          this.updateModalLiveRegion();
+      },
+
+      prevModalImage() {
+          this.currentModalIndex = (this.currentModalIndex - 1 + this.slides.length) % this.slides.length;
+          this.updateModalLiveRegion();
+      },
+
+      updateModalLiveRegion() {
+          this.$nextTick(() => {
+              this.$refs.modalLiveRegion.textContent = `Image ${this.currentModalIndex + 1} of ${this.slides.length} displayed: ${this.slides[this.currentModalIndex].alt}.`;
+          });
+      },
+
+      handleModalKeydown(event) {
+          if (event.key === 'Escape') {
+              event.preventDefault();
+              this.closeModal();
+          } else if (event.key === 'ArrowLeft') {
+              event.preventDefault();
+              this.prevModalImage();
+          } else if (event.key === 'ArrowRight') {
+              event.preventDefault();
+              this.nextModalImage();
+          }
+      },
+
+      // Focus trapping utility
+      trapFocus(event) {
+          if (!this.showModal) return;
+          const focusableElements = this.$refs.modalContent.querySelectorAll(`button, [href], input, select, textarea, [tabindex]:not([tabindex='-1'])`);
+          const firstFocusableEl = focusableElements[0];
+          const lastFocusableEl = focusableElements[focusableElements.length - 1];
+
+          if (event.shiftKey) { // Tab backward
+              if (document.activeElement === firstFocusableEl) {
+                  lastFocusableEl.focus();
+                  event.preventDefault();
+              }
+          } else { // Tab forward
+              if (document.activeElement === lastFocusableEl) {
+                  firstFocusableEl.focus();
+                  event.preventDefault();
+              }
+          }
       }
   }"
 	role="region"
 	aria-label="Image Carousel"
 >
-	<div class="relative h-96">
+	<div class="relative -md:h-80 h-96">
 		<template x-for="(slide, index) in slides" :key="index">
 			<div
 				x-show="activeSlide === index"
@@ -105,17 +182,17 @@
 				:aria-roledescription="activeSlide === index ? 'Current slide' : ''"
 				:aria-label="'Slide ' + (index + 1) + ' of ' + slides.length"
 			>
-				<a
-					:href="slide.link"
-					class="block w-full h-full relative focus-outline-blue"
-					@focus="stopAutoplay()"
-					@blur="startAutoplay()"
+				<button
+					@click="openModal(index)"
+					class="block w-full h-full relative focus-outline-blue cursor-zoom-in"
+					type="button"
+					:aria-label="'View image ' + slide.caption + ' in full screen'"
 				>
 					<img
 						:src="slide.img"
 						:alt="slide.alt"
 						class="w-full h-full object-cover"
-						draggable="true"
+						draggable="false"
 					/>
 					<div
 						x-show="slide.caption"
@@ -126,7 +203,25 @@
 					>
 						<h4 class="text-xs font-playfair" x-text="slide.caption"></h4>
 					</div>
-				</a>
+					<div
+						class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30 opacity-0 group-hover:opacity-100 transition-opacity"
+					>
+						<svg
+							class="h-12 w-12 text-white"
+							fill="none"
+							stroke="currentColor"
+							viewBox="0 0 24 24"
+							xmlns="http://www.w3.org/2000/svg"
+						>
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="2"
+								d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m0 0h3"
+							></path>
+						</svg>
+					</div>
+				</button>
 			</div>
 		</template>
 	</div>
@@ -137,7 +232,7 @@
 		aria-label="Previous slide"
 	>
 		<svg
-			class="w-3 h-3"
+			class="w-4 h-4"
 			fill="none"
 			stroke="currentColor"
 			viewBox="0 0 24 24"
@@ -157,7 +252,7 @@
 		aria-label="Next slide"
 	>
 		<svg
-			class="w-3 h-3"
+			class="w-4 h-4"
 			fill="none"
 			stroke="currentColor"
 			viewBox="0 0 24 24"
@@ -227,5 +322,106 @@
 		x-ref="liveRegion"
 	>
 		Slide 1 of {{ slides.length }}
+	</div>
+
+	<div
+		x-show="showModal"
+		x-cloak
+		class="fixed inset-0 bg-black bg-opacity-90 z-[999] flex items-center justify-center p-4"
+		role="dialog"
+		aria-modal="true"
+		:aria-label="'Image Gallery: ' + slides[currentModalIndex].caption"
+		@click.outside="closeModal()"
+		@keydown.escape.window="closeModal()"
+		@keydown.tab="trapFocus"
+	>
+		<div
+			class="relative w-full h-full flex flex-col items-center justify-center"
+			x-ref="modalContent"
+		>
+			<button
+				@click="closeModal()"
+				class="absolute top-4 right-4 text-white p-3 rounded-full bg-gray-800 bg-opacity-70 hover:bg-opacity-100 transition-colors focus-outline-blue z-10"
+				aria-label="Close image gallery"
+				x-ref="modalCloseButton"
+			>
+				<svg
+					class="w-8 h-8"
+					fill="none"
+					stroke="currentColor"
+					viewBox="0 0 24 24"
+					xmlns="http://www.w3.org/2000/svg"
+				>
+					<path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-width="2"
+						d="M6 18L18 6M6 6l12 12"
+					></path>
+				</svg>
+			</button>
+
+			<img
+				:src="slides[currentModalIndex].fullImg"
+				:alt="slides[currentModalIndex].alt"
+				class="max-w-full max-h-[calc(100%-120px)] object-contain rounded-lg shadow-xl"
+				tabindex="0"
+			/>
+
+			<p
+				x-show="slides[currentModalIndex].caption"
+				class="mt-4 text-white text-lg text-center"
+				x-text="slides[currentModalIndex].caption"
+			></p>
+
+			<button
+				@click="prevModalImage()"
+				class="absolute left-4 top-1/2 -translate-y-1/2 p-3 bg-gray-800 bg-opacity-70 text-white rounded-full hover:bg-opacity-100 transition-colors focus-outline-blue"
+				aria-label="Previous image"
+			>
+				<svg
+					class="w-4 h-4"
+					fill="none"
+					stroke="currentColor"
+					viewBox="0 0 24 24"
+					xmlns="http://www.w3.org/2000/svg"
+				>
+					<path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-width="2"
+						d="M15 19l-7-7 7-7"
+					></path>
+				</svg>
+			</button>
+			<button
+				@click="nextModalImage()"
+				class="absolute right-4 top-1/2 -translate-y-1/2 p-3 bg-gray-800 bg-opacity-70 text-white rounded-full hover:bg-opacity-100 transition-colors focus-outline-blue"
+				aria-label="Next image"
+			>
+				<svg
+					class="w-4 h-4"
+					fill="none"
+					stroke="currentColor"
+					viewBox="0 0 24 24"
+					xmlns="http://www.w3.org/2000/svg"
+				>
+					<path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-width="2"
+						d="M9 5l7 7-7 7"
+					></path>
+				</svg>
+			</button>
+
+			<div
+				role="status"
+				aria-live="assertive"
+				aria-atomic="true"
+				class="sr-only"
+				x-ref="modalLiveRegion"
+			></div>
+		</div>
 	</div>
 </section>
