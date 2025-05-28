@@ -1215,12 +1215,25 @@ Animations
     margin-top: 5rem;
   }
 
+  .-md\:ml-1 {
+    margin-left: 0.25rem;
+  }
+
+  .-md\:hidden {
+    display: none;
+  }
+
   .-md\:h-hero-mobile {
     height: calc(100vh - 44px);
   }
 
   .-md\:min-h-150 {
     min-height: 37.5rem;
+  }
+
+  .-md\:translate-y-1 {
+    --tw-translate-y: 0.25rem;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
   }
 
   .-md\:grid-cols-2 {
@@ -1231,11 +1244,30 @@ Animations
     padding-left: 0px;
     padding-right: 0px;
   }
+
+  .-md\:py-1 {
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+  }
+
+  .-md\:text-3xl {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+  }
+
+  .-md\:text-xl {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
 }
 
 @media (min-width: 768px) {
   .md\:mb-3 {
     margin-bottom: 0.75rem;
+  }
+
+  .md\:hidden {
+    display: none;
   }
 
   .md\:w-1\/2 {

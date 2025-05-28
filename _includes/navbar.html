@@ -4,20 +4,16 @@
 		href="/"
 		aria-label="Homepage"
 	>
-		<div
-			class="font-pinyon text-[54px] -tablet:text-3xl text-nowrap flex -tablet:py-1"
-		>
-			<span
-				class="text-3xl -tablet:text-xl -tablet:translate-y-1 translate-y-4"
-			>
+		<div class="font-pinyon text-[54px] -md:text-3xl text-nowrap flex -md:py-1">
+			<span class="text-3xl -md:text-xl -md:translate-y-1 translate-y-4">
 				The
 			</span>
 			<span>Wynstra</span>
-			<span class="ml-3 -tablet:ml-1">House</span>
+			<span class="ml-3 -md:ml-1">House</span>
 		</div>
 	</a>
 
-	<nav class="flex w-full -tablet:hidden" aria-label="Navigation">
+	<nav class="flex w-full -md:hidden" aria-label="Navigation">
 		<ul
 			class="flex w-full items-center"
 			role="menubar"
@@ -30,18 +26,18 @@
 					>Wynstra Family</a
 				>
 			</li>
-			<li role="menuitem" class="menu-item">
+			<!-- <li role="menuitem" class="menu-item">
 				<a
 					class="hover:text-brown transition-text duration-500"
 					href="/the-house"
 					>The House</a
 				>
-			</li>
+			</li> -->
 		</ul>
 	</nav>
 
 	<nav
-		class="flex w-full tablet:hidden"
+		class="flex w-full md:hidden"
 		aria-label="Navigation"
 		x-data="{ open: false }"
 		@keydown.escape="open = false"
