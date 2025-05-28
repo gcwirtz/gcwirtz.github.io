@@ -12,8 +12,11 @@
 
 		<link rel="stylesheet" href="/assets/css/styles.css" />
 	</head>
-	<body class="relative max-w-400 w-full mx-auto -tablet:px-5 px-8">
-		{% include navbar.html %} {% include heroes/carousel.html %} {{ content }}
+	<body class="relative max-w-400 w-full mx-auto">
+		{% include navbar.html %}
+		<main class="-tablet:px-5 px-8">
+			{% include heroes/carousel.html %} {{ content }}
+		</main>
 		{% include footer.html %}
 		<script type="module" src="/assets/js/dist/bundle.min.js"></script>
 	</body>

@@ -1,4 +1,4 @@
-<header class="sticky z-10 inset-0 bg-white flex">
+<header class="sticky z-10 inset-0 bg-white flex -tablet:px-5 px-8">
 	<a
 		class="hover:text-brown transition-text duration-500"
 		href="/"
@@ -72,7 +72,7 @@
 			x-show="open"
 			@click.outside="open = false"
 			:aria-hidden="!open"
-			class="bg-white rounded-md absolute right-0 top-[44px]"
+			class="bg-white rounded-b-md absolute right-[20px] top-[44px]"
 			x-transition
 			x-cloak
 		>
