@@ -1,17 +1,95 @@
-<header class="sticky z-10 inset-0 bg-white">
-  <nav class="nav-menu w-full" aria-label="Navigation">
-    <ul class="flex w-full items-center" role="menubar" aria-label="Main Navigation">
-      <li class="group" role="menuitem">
-        <a class="hover:text-brown transition-text duration-500" href="/" aria-label="Home">
-          <span class="font-pinyon text-[54px]">The Wynstra House</span>
-        </a>
-      </li>
-      <li role="menuitem" class="menu-item ml-auto -md: mr-11">
-        <a class="hover:text-brown transition-text duration-500" href="/wynstra-family">Wynstra Family</a>
-      </li>
-      <li role="menuitem" class="menu-item">
-        <a class="hover:text-brown transition-text duration-500" href="/the-house">The House</a>
-      </li>
-    </ul>
-  </nav>
+<header class="sticky z-10 inset-0 bg-white flex">
+	<a
+		class="hover:text-brown transition-text duration-500"
+		href="/"
+		aria-label="Homepage"
+	>
+		<div
+			class="font-pinyon text-[54px] -tablet:text-3xl text-nowrap flex -tablet:py-1"
+		>
+			<span
+				class="text-3xl -tablet:text-xl -tablet:translate-y-1 translate-y-4"
+			>
+				The
+			</span>
+			<span>Wynstra</span>
+			<span class="ml-3 -tablet:ml-1">House</span>
+		</div>
+	</a>
+
+	<nav class="flex w-full -tablet:hidden" aria-label="Navigation">
+		<ul
+			class="flex w-full items-center"
+			role="menubar"
+			aria-label="Main Navigation"
+		>
+			<li role="menuitem" class="menu-item ml-auto mr-11">
+				<a
+					class="hover:text-brown transition-text duration-500"
+					href="/wynstra-family"
+					>Wynstra Family</a
+				>
+			</li>
+			<li role="menuitem" class="menu-item">
+				<a
+					class="hover:text-brown transition-text duration-500"
+					href="/the-house"
+					>The House</a
+				>
+			</li>
+		</ul>
+	</nav>
+
+	<nav
+		class="flex w-full tablet:hidden"
+		aria-label="Navigation"
+		x-data="{ open: false }"
+		@keydown.escape="open = false"
+		role="navigation"
+		aria-label="Main navigation"
+	>
+		<div class="flex justify-between items-center w-full">
+			<button
+				@click="open = !open"
+				:aria-expanded="open ? 'true' : 'false'"
+				aria-controls="mobile-menu"
+				class="ml-auto group"
+			>
+				<div class="grid items-center gap-[4px]">
+					<span
+						class="h-0.5 w-5 rounded-full bg-black transition-all duration-300 group-hover:bg-brown"
+						:class="open && 'rotate-45 translate-y-[6px]'"
+					></span>
+					<span
+						class="h-0.5 w-5 rounded-full bg-black transition-all duration-300 group-hover:bg-brown"
+						:class="open ? 'opacity-0' : 'opacity-100'"
+					></span>
+					<span
+						class="h-0.5 w-5 rounded-full bg-black transition-all duration-300 group-hover:bg-brown"
+						:class="open && '-rotate-45 -translate-y-[6px]'"
+					></span>
+				</div>
+			</button>
+		</div>
+
+		<div
+			x-show="open"
+			@click.outside="open = false"
+			:aria-hidden="!open"
+			class="bg-white rounded-md absolute right-0 top-[44px]"
+			x-transition
+			x-cloak
+		>
+			<a
+				href="/"
+				class="block px-4 py-2 transition-all duration-300 ease-in hover:bg-gray-100 rounded-md"
+				>Home</a
+			>
+			<a
+				href="/wynstra-family"
+				class="block px-4 py-2 transition-all duration-300 ease-in hover:bg-gray-100 rounded-md"
+				>Wynstra Family</a
+			>
+		</div>
+	</nav>
 </header>

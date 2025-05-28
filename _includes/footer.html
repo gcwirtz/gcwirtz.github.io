@@ -1,26 +1,42 @@
-<footer class="flex flex-col w-full max-w-400 mx-auto -md:mt-20 mt-40 -md:pb-6 pb-40">
-  <nav class="w-full grid -md:grid-cols-2 grid-cols-2 gap-x-5">
-    <div role="group">
-      <h4 class="uppercase font-playfair mb-3 text-brown" tabindex="0">This Site</h4>
-      <ul class="flex space-x-8">
-        <li>
-          <a href="/theodore-wynstra" class="hover:text-pank transition-all duration-500"><span>Theodore Wynstra</span></a>
-        </li>
-        <li>
-          <a href="/the-house" class="hover:text-pank transition-all duration-500"><span>The House</span></a>
-        </li>
-      </ul>
-    </div>
+<footer class="flex flex-col w-full max-w-400 mx-auto -md:mt-20 mt-40 mb-6">
+	<nav class="w-full grid -md:grid-cols-2 grid-cols-2 gap-x-5">
+		<div role="group">
+			<h4 class="uppercase font-playfair mb-3 text-brown" tabindex="0">
+				This Site
+			</h4>
+			<ul class="flex space-x-8">
+				<li>
+					<a
+						href="/theodore-wynstra"
+						class="hover:text-pank transition-all duration-500"
+						><span>Theodore Wynstra</span></a
+					>
+				</li>
+				<li>
+					<a
+						href="/the-house"
+						class="hover:text-pank transition-all duration-500"
+						><span>The House</span></a
+					>
+				</li>
+			</ul>
+		</div>
 
-    <div class="-md:col-span-2 col-span-1 flex flex-col items-end">
-      <span class="text-brown mb-5">
-        709 Percival St SW<br />
-        Olympia, WA 98502
-      </span>
-      <span class="flex md:mb-3 -md:order-2" tabindex="0">&#169; {{ site.time | date: "%Y" }} | Wynstra House </span>
-      <a class="group relative flex -md:order-1 -md:mb-3" href="/" aria-label="Link to the top of this page.">
-        <span class="h1">The Wynstra House</span>
-      </a>
-    </div>
-  </nav>
+		<div class="-md:col-span-2 col-span-1 flex flex-col items-end">
+			<span class="text-brown mb-5">
+				709 Percival St SW<br />
+				Olympia, WA 98502
+			</span>
+			<span class="flex md:mb-3 -md:order-2" tabindex="0"
+				>&#169; {{ site.time | date: "%Y" }} | Wynstra House
+			</span>
+			<a
+				class="group relative flex -md:order-1 -md:mb-3"
+				href="/"
+				aria-label="Link to the top of this page."
+			>
+				<span class="h1">The Wynstra House</span>
+			</a>
+		</div>
+	</nav>
 </footer>

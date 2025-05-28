@@ -2,63 +2,76 @@
 @tailwind components;
 @tailwind utilities;
 
+/* prevent hidden drawers from being 'flash' displayed while page loads */
+[x-cloak] {
+	display: none !important;
+}
+
 @font-face {
-  font-family: "Pinyon Script";
-  src: url("../fonts/PinyonScript-Regular.ttf") format("truetype");
+	font-family: "Pinyon Script";
+	src: url("../fonts/PinyonScript-Regular.ttf") format("truetype");
 }
 @font-face {
-  font-family: "Playfair Display";
-  src: url("../fonts/PlayfairDisplay-Regular.ttf") format("truetype");
+	font-family: "Playfair Display";
+	src: url("../fonts/PlayfairDisplay-Regular.ttf") format("truetype");
 }
 
 html {
-  scroll-behavior: smooth;
+	scroll-behavior: smooth;
 }
 body {
-  background-color: #fff;
-  font-family: "Playfair Display";
-  color: #000;
+	background-color: #fff;
+	font-family: "Playfair Display";
+	color: #000;
 }
 
 .menu-item a:hover:after {
-  width: 100%;
-  background: #80471c;
+	width: 100%;
+	background: #80471c;
 }
 .menu-item a:after {
-  content: "";
-  display: block;
-  margin: auto;
-  height: 1px;
-  width: 0;
-  background: #fff;
-  transition: width 0.5s ease, background-color 0.5s ease;
+	content: "";
+	display: block;
+	margin: auto;
+	height: 1px;
+	width: 0;
+	background: #fff;
+	transition: width 0.5s ease, background-color 0.5s ease;
 }
 /* home hero images fallback for ~tablet widths */
 @media (max-width: 1219px) {
-  .hero-image {
-    width: calc(50vw + 200px);
-  }
+	.hero-image {
+		width: calc(50vw + 200px);
+	}
 }
 
 /* dark-> transparent gradient overlays */
 .gradient-bl {
-  background: linear-gradient(9deg, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0) 25%);
+	background: linear-gradient(
+		9deg,
+		rgba(0, 0, 0, 0.85) 0%,
+		rgba(0, 0, 0, 0) 25%
+	);
 }
 .gradient-br {
-  background: linear-gradient(351deg, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0) 25%);
+	background: linear-gradient(
+		351deg,
+		rgba(0, 0, 0, 0.85) 0%,
+		rgba(0, 0, 0, 0) 25%
+	);
 }
 
 /* button styling */
 .btn {
-  padding: 0.5rem 1rem;
-  background-color: #80471c;
-  border-radius: 9999px;
-  text-align: center;
-  color: white;
+	padding: 0.5rem 1rem;
+	background-color: #80471c;
+	border-radius: 9999px;
+	text-align: center;
+	color: white;
 }
 .btn:hover {
-  background-color: #6b3a16;
-  transition: all 0.5s ease-in-out;
+	background-color: #6b3a16;
+	transition: all 0.5s ease-in-out;
 }
 
 /**
@@ -67,30 +80,32 @@ Animations
 
 /* Animations on load and scroll */
 .pre-animated.step {
-  opacity: 0;
-  transform: translateY(-2rem);
+	opacity: 0;
+	transform: translateY(-2rem);
 }
 .pre-animated.step .substep {
-  opacity: 0;
-  transform: translateY(-2rem);
+	opacity: 0;
+	transform: translateY(-2rem);
 }
 .step {
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity 0.75s ease-in-out, transform 0.75s ease-in-out, filter 0.75s ease-in-out;
+	opacity: 1;
+	transform: translateY(0);
+	transition: opacity 0.75s ease-in-out, transform 0.75s ease-in-out,
+		filter 0.75s ease-in-out;
 }
 .step .substep {
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity 0.75s ease-in-out, transform 0.75s ease-in-out, filter 0.75s ease-in-out;
+	opacity: 1;
+	transform: translateY(0);
+	transition: opacity 0.75s ease-in-out, transform 0.75s ease-in-out,
+		filter 0.75s ease-in-out;
 }
 /* Animation delays */
 .substep.animation__delay-short {
-  transition-delay: 0.3s;
+	transition-delay: 0.3s;
 }
 .substep.animation__delay-medium {
-  transition-delay: 0.6s;
+	transition-delay: 0.6s;
 }
 .substep.animation__delay-long {
-  transition-delay: 0.9s;
+	transition-delay: 0.9s;
 }
