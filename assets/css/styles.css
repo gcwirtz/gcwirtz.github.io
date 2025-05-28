@@ -838,10 +838,6 @@ h4, .h4 {
   height: calc(100vh - 81px);
 }
 
-.h-80 {
-  height: 20rem;
-}
-
 .h-12 {
   height: 3rem;
 }
@@ -1198,6 +1194,11 @@ h4, .h4 {
   line-height: 1.75rem;
 }
 
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
 .uppercase {
   text-transform: uppercase;
 }
@@ -1500,12 +1501,12 @@ Animations
     display: none;
   }
 
-  .-md\:h-hero-mobile {
-    height: calc(100vh - 44px);
-  }
-
   .-md\:h-80 {
     height: 20rem;
+  }
+
+  .-md\:h-hero-mobile {
+    height: calc(100vh - 44px);
   }
 
   .-md\:min-h-150 {
