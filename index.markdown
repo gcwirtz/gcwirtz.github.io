@@ -12,8 +12,8 @@ meta-image: /assets/images/house_1938.jpg
 {% include heroes/home.html %}
 
 <main class="flex flex-col"> 
-{% include components/component-location.html %} 
 {% include components/component-theodore.html %} 
 {% include components/component-quote.html %} 
 {% include components/component-house.html %}
+{% include components/component-location.html %} 
 </main>
